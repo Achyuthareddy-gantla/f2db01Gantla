@@ -1,8 +1,3 @@
-# f2wb01Gantla
-render link : <https://f2wb01gantla.onrender.com>
-
+# f2db01Gantla
 Achyutha Reddy ReadMe
-
-Class : Animal
-
-Attribute : AnimalName(String), AnimalWeight(number), AnimalType(String)
+[https://f2db01gantla.onrender.com/]
