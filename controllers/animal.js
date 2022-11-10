@@ -1,8 +1,15 @@
-var animal = require('../models/animal');
-// List of all animals
-exports.animal_list = function(req, res) {
- res.send('NOT IMPLEMENTED: animal list');
-};
+var Animal = require('../models/animal');
+// List of all Costumes
+exports.animal_list = async function(req, res) {
+    try{
+    theAnimals = await Animal.find();
+    res.send(theAnimals);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
 // for a specific animal.
 exports.animal_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: animal detail: ' + req.params.id);

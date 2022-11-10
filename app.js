@@ -85,7 +85,8 @@ app.use('/users', usersRouter);
 app.use('/animal', animalRouter);
 app.use('/gridbuild', gridbuildRouter)
 app.use('/selector', selector)
-app.use('/resouce', resourceRouter)
+app.use('/resource',resourceRouter)
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
