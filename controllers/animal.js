@@ -14,10 +14,26 @@ exports.animal_list = async function(req, res) {
 exports.animal_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: animal detail: ' + req.params.id);
 };
-// Handle animal create on POST.
-exports.animal_create_post = function(req, res) {
- res.send('NOT IMPLEMENTED: animal create POST');
-};
+// Handle Costume create on POST.
+exports.animal_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new Animal();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costume_type":"goat", "cost":12, "size":"large"}
+    document.animalName = req.body.animalName;
+    document.animalWeight= req.body.animalWeight;
+    document.animalType = req.body.animalType;
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
 // Handle animal delete form on DELETE.
 exports.animal_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: animal delete DELETE ' + req.params.id);
