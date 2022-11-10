@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - var results = [{"animalName": "Elephant", "animalWeight": 700, "animalType": "Wild"}, {"animalName": "Rabbit", "animalWeight": 50, "animalType": "Domestic"}, {"animalName": "Lion", "animalWeight": 500, "animalType": "Wild"}]
+  - var results = results
     div(class = 'container-fluid')
       div(class = 'row')
         each item,index in results 

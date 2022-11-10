@@ -26,3 +26,16 @@ exports.animal_delete = function(req, res) {
 exports.animal_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: animal update PUT' + req.params.id);
 };
+
+// VIEWS
+// Handle a show all view
+exports.animal_view_all_Page = async function(req, res) {
+    try{
+    theAnimals = await Animal.find();
+    res.render('animal', { title: 'Animal Search Results', results: theAnimals });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
