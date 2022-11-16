@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let id = toShow._id 
+  - let animalName = toShow.animalName 
+  - let animalWeight = toShow.animalWeight 
+  - let animalType = toShow.animalType 
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{id} 
+  - let actionid = "/resource/animals/" + id 
+  form(id='AnimalForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.animalAttr(for='animalName') Animal Name
+        input#animalName(type='text', name='animalName', value= animalName ) 
+    div.form-group 
+        label.animalAttr(for='animalWeight') Animal Weight 
+        input#animalWeight(type='number', name='animalWeight', value= animalWeight ) 
+    div.form-group 
+        label.animalAttr(for='animalType') Animal Type  
+        input#animalType(type='text', name='animalType', value= animalType ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['AnimalForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });

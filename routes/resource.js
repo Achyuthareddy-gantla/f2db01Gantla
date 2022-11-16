@@ -17,4 +17,16 @@ router.put('/animals/:id', animal_controller.animal_update_put);
 router.get('/animals/:id', animal_controller.animal_detail);
 // GET request for list of all animal items.
 router.get('/animals', animal_controller.animal_list);
+/* GET detail costume page */
+router.get('/detail', animal_controller.animal_view_one_Page);
+
+/* GET create costume page */
+router.get('/create', animal_controller.animal_create_Page);
+
+/* GET create update page */
+router.get('/update', animal_controller.animal_update_Page);
+
+/* GET delete costume page */
+router.get('/delete', animal_controller.animal_delete_Page);
+
 module.exports = router;
