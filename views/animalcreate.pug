@@ -1,17 +1,17 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class='g')= title 
  
   form(id='AnimalForm', action="/resource/animals", method="POST") 
     div.form-group 
-        label.animalAttr(for='animalName') Animal Name
+        label.animalA(for='animalName') Animal Name
         input#animalName(type='text', name='animalName') 
     div.form-group 
-        label.animalAttr(for='animalWeight') Animal Weight 
+        label.animalA(for='animalWeight') Animal Weight 
         input#animalWeight(type='number', name='animalWeight') 
     div.form-group 
-        label.animalAttr(for='animalType') Animal Type
+        label.animalA(for='animalType') Animal Type
         input#animalWeight(type='text', name='animalType') 
     input(type="submit") 
  

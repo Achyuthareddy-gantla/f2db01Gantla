@@ -11,3 +11,18 @@ a {
   background-color: aquamarine;
   width: 120px;
  }
+ 
+ .animalA {
+  background-color: rgb(127, 131, 255);
+  width: 550px;
+  font-style: italic;
+ }
+ .g{
+  background-color: blueviolet;
+  font-size: larger;
+  font-style: oblique;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: bolder;
+  width: max-content;
+ }
