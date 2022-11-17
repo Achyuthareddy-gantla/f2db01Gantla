@@ -1,14 +1,14 @@
-
 extends layout 
- 
 block content 
-  h1= title 
- 
-  - let animalid = toShow._id 
-  - let animalName = toShow.animalName 
-  - let animalWeight = toShow.animalWeight
-  - let animalType = toShow.animalType
-  div 
+ h1= title 
+ if (toShow == null) 
+   h2 No instance Details 
+ else
+   - let animalid = toShow._id 
+   - let animalName = toShow.animalName 
+   - let animalWeight = toShow.animalWeight
+   - let animalType = toShow.animalType
+   div 
     div.row 
       div(class='animalAttr mr-3') Animal ID is: 
       div #{animalid} 
