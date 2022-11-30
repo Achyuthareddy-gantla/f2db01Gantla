@@ -12,10 +12,12 @@ block content
                         div(class='card', style='width: 17rem;')
                             div(class='card-body')
                                 - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
-                                div(class='card-text', onclick=`buy(${index})`) animalName : #{item["animalName"]} <br> animalWeight : #{item["animalWeight"]} <br> animalType: #{item["animalType"]} 
-                                button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Create
-                                button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Update
-                                button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Delete
+                                - let detailBtn = `dispatch(\"/resource/detail?id=${item._id}\")`
+                                - let deleteBtn = `dispatch(\"/resource/delete?id=${item._id}\")`
+                                div(class='card-text') animalName : #{item["animalName"]} <br> animalWeight : #{item["animalWeight"]} <br> animalType: #{item["animalType"]} 
+                                    button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Update
+                                    button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= detailBtn) Details 
+                                    button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= deleteBtn) Delete
   
   script.
       function buy(index){
