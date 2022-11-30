@@ -5,13 +5,11 @@ const animalSchema = mongoose.Schema({
         minLength: 3,
         maxLength: 10
     },
-    animalWeight: {
-        type: Number,
-        required: [true, 'Weight of the Animal cannot be empty']
-    },
+    animalWeight: Number,
     animalType: {
         type: String,
-        required: [true, 'Animal Type cannot be empty']
+        minLength: 2,
+        maxLength: 12
     },
 
 });

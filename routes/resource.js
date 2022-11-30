@@ -32,12 +32,12 @@ res.redirect("/login");
 }
 
 /* GET create costume page */
-router.get('/create', animal_controller.animal_create_Page);
+router.get('/create', secured, animal_controller.animal_create_Page);
 
 /* GET create update page */
 router.get('/update', secured, animal_controller.animal_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', animal_controller.animal_delete_Page);
+router.get('/delete', secured, animal_controller.animal_delete_Page);
 
 module.exports = router;
