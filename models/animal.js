@@ -2,7 +2,8 @@ const mongoose = require("mongoose")
 const animalSchema = mongoose.Schema({
     animalName: {
         type: String,
-        required: [true, 'Name of the Animal cannot be empty']
+        minLength: 3,
+        maxLength: 10
     },
     animalWeight: {
         type: Number,
