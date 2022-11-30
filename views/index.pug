@@ -1,17 +1,12 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
-  p Achyutha Reddy Gantla 
-  button(type='button',class='btn btn-primary', onClick = "doBump()") Press Me
-  div(id = "bump") Bump the count
-  a(href="animal") Animal
-  script.
-    let count = 0
-    let bump = 1
-    function doBump() {
-      count+= bump 
-      bump = bump + 1
-      document.getElementById('bump').innerHTML = `Count ${count} with bump ${bump}`
-    }
+ if (!user)
+  a(href="/login") Login
+  br
+  a(href="/register") Register
+ if (user)
+  p You are currently logged in as #{user.username}
+  a(href="/animal") Take me to animal
+  br
+  a(href="/logout") Logout
+    
