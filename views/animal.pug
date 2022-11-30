@@ -11,7 +11,7 @@ block content
                     div(class='col-md')
                         div(class='card', style='width: 17rem;')
                             div(class='card-body')
-                                - let destination = `dispatch(\"/animal/update?id=${item._id}\")`
+                                - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
                                 div(class='card-text', onclick=`buy(${index})`) animalName : #{item["animalName"]} <br> animalWeight : #{item["animalWeight"]} <br> animalType: #{item["animalType"]} 
                                 button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Create
                                 button.btn(class="btn-warning btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Update
@@ -25,17 +25,3 @@ block content
       function dispatch(path) {
             window.location.href = path;
         }
-
-
-      passport.use(new LocalStrategy(function(username, password, done) {
-                Account.findOne({ username: username }, function (err, user) {
-                if (err) { return done(err); }
-                if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
-                }
-                if (!user.validPassword(password)) {
-                    return done(null, false, { message: 'Incorrect password.' });
-                }
-                return done(null, user);
-            });
-        }));
